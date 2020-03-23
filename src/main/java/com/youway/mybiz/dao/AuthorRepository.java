@@ -7,7 +7,7 @@ import com.youway.mybiz.entity.Author;
 
 
 
-@RepositoryRestResource(path = "author", itemResourceRel = "resource", collectionResourceRel = "resources")
+@RepositoryRestResource(path = "authorRepo", itemResourceRel = "resource", collectionResourceRel = "resources")
 public interface AuthorRepository extends JpaDao<Author,Long>{
 	Author findByPhoneNum(String phoneNum);
 }

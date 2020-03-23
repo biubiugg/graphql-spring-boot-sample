@@ -9,7 +9,7 @@ public class BookDTO {
 	private Integer id;
 	private String name;
 	private String publisher;
-	private String strISBN;
+	private String isbn;
 	private String authorName;
 	private String authorPhoneNum;
     private Integer authorAge;

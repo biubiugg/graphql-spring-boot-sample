@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -19,14 +20,14 @@ import lombok.EqualsAndHashCode;
 //父类和子类都有@Data注解，要在子类加上EqualsAndHashCode(callSuper = true)
 @EqualsAndHashCode(callSuper = true) 
 @Entity
-@Table(name = "book")
+@Table(name = "book",indexes = {@Index(name = "ISBN",columnList = "isbn")})
 public class Book extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
 	private String name;
-	private String strISBN;
+	private String isbn;
 	
 	@ManyToOne  
 	@JoinColumn(name = "AUTHOR_ID", nullable = false)  

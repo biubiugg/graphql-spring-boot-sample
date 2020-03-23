@@ -90,7 +90,7 @@ public class BookController {
 
 		return bookRepository.findById(id).map(book -> {
 			book.setName(newBook.getName());
-			book.setStrISBN(newBook.getStrISBN());
+			book.setIsbn(newBook.getIsbn());
 			book.setPublisher(newBook.getPublisher());
 			book.setAuthor(author);
 			return bookRepository.save(book);

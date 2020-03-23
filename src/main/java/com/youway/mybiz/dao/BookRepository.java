@@ -8,5 +8,5 @@ import com.youway.mybiz.entity.Book;
 
 @RepositoryRestResource(path = "bookRepo", itemResourceRel = "resource", collectionResourceRel = "resources")
 public interface BookRepository extends JpaDao<Book,Long>{
-	Book findByStrISBN(String strISBN);
+	Book findByIsbn(String isbn);
 }

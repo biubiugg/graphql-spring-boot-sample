@@ -26,7 +26,7 @@ public class BookService extends BaseService<Book, Long> {
 
 	@Transactional(readOnly = false)
 	public Book create(BookDTO bookDTO) throws Exception {
-		Book book = Optional.ofNullable(bookRepository.findByStrISBN(bookDTO.getStrISBN())).orElseGet(() -> new Book());
+		Book book = Optional.ofNullable(bookRepository.findByIsbn(bookDTO.getIsbn())).orElseGet(() -> new Book());
 		Author author = Optional.ofNullable(authorRepository.findByPhoneNum(bookDTO.getAuthorPhoneNum()))
 				.orElseGet(() -> new Author());
 		author.setName(bookDTO.getAuthorName());
