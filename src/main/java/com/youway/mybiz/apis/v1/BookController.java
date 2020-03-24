@@ -85,7 +85,7 @@ public class BookController {
 
 	@PutMapping("/books/{id}")
 	public Book updateBook(@RequestBody Book newBook, @PathVariable Long id) {
-		Author author = Optional.ofNullable(authorRepository.findByPhoneNum(newBook.getAuthor().getPhoneNum()))
+		Author author = Optional.ofNullable(authorRepository.findByPhoneNum(newBook.getAuthor().getPhoneNum()).get(1))
 				.orElseGet(() -> new Author());
 
 		return bookRepository.findById(id).map(book -> {

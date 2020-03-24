@@ -27,9 +27,9 @@ public class Mutation implements GraphQLMutationResolver {
 	
 	public Book newBook(String isbn, String phoneNum) {
 		
-		Author author = Optional.ofNullable(authorRepository.findByPhoneNum(phoneNum))
+		Author author = Optional.ofNullable(authorRepository.findByPhoneNum(phoneNum).get(1))
 				.orElseGet(() -> new Author());
-       return Optional.ofNullable(bookRepository.findByIsbn(isbn)).orElseGet(() -> {
+       return Optional.ofNullable(bookRepository.findByIsbn(isbn).get(1)).orElseGet(() -> {
     	    Book newBook = new Book();
     	    newBook.setIsbn(isbn);
 			newBook.setAuthor(author);
@@ -38,7 +38,7 @@ public class Mutation implements GraphQLMutationResolver {
     }
 	
 	public boolean deleteBook(Long id) {
-        bookRepository.deleteById(id);
+		bookRepository.deleteById(id);
         return true;
     }
 	

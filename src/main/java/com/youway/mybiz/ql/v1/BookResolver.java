@@ -6,13 +6,13 @@ import com.youway.mybiz.entity.Author;
 import com.youway.mybiz.entity.Book;
 
 public class BookResolver implements GraphQLResolver<Book> {
-    private AuthorRepository authorRepository;
+    private AuthorRepository authorRepo;
 
-    public BookResolver(AuthorRepository authorRepository) {
-        this.authorRepository = authorRepository;
+    public BookResolver(AuthorRepository authorRepo) {
+        this.authorRepo = authorRepo;
     }
 
     public Author getAuthor(Book book) {
-        return authorRepository.findById(book.getAuthor().getId()).get();
+        return authorRepo.findById(book.getAuthor().getId()).get();
     }
 }
